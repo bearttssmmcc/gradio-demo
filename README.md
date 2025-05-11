@@ -1,6 +1,6 @@
 # Gradio Demo (RGB Color Generator)
 
-![](./doc/sceenshot.jpg)
+![](./doc/screenshot.jpg)
 
 ## Run locally
 
@@ -31,3 +31,26 @@ Remove container
 ```bash
 docker rm my-color-app
 ```
+
+## Kubernetes YAML
+
+Assume push the iamge to Google Artifact Registry(us-central1).
+
+Copy the `k8s/deployment.yaml.tmpl` to `k8s/deployment.yaml`, and replace the placeholder:
+- `$PROJECT_ID`
+- `$AR_REPO_NAME`
+
+Apply to GKE
+
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+Wait the external IP ready
+
+```bash
+kubectl get service color-generator-external
+```
+
+Access the external IP in browser.

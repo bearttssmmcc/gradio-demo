@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: color-generator-external
+  labels:
+    app: color-generator
+spec:
+  type: LoadBalancer
+  selector:
+    app: color-generator
+  ports:
+  - name: http
+    port: 80
+    targetPort: 7860

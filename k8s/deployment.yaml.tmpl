@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: color-generator
+  labels:
+    app: color-generator
+spec:
+  selector:
+    matchLabels:
+      app: color-generator
+  template:
+    metadata:
+      labels:
+        app: color-generator
+    spec:
+      containers:
+        - name: app
+          image: us-central1-docker.pkg.dev/$PROJECT_ID/$AR_REPO_NAME/color-generator:1.0.0
+          ports:
+          - containerPort: 7860
+          readinessProbe:
+            initialDelaySeconds: 10
+            httpGet:
+              port: 7860
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi

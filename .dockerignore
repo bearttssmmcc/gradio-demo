@@ -1,0 +1,118 @@
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# Docker files (Dockerfile is needed for build, but ignore others if any)
+# .dockerignore # This file itself should not be ignored by Docker during build
+
+# Python virtual environment
+# These should never be copied into the Docker image.
+# Dependencies are installed via requirements.txt.
+.venv/
+venv/
+env/
+ENV/
+__pypackages__/
+
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.project
+.pydevproject
+.settings/
+nbproject/
+.spyderproject
+.spyderworkspace
+*.wpr
+*.wpu
+.history/
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Test reports and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+
+# Local configuration files (if any, often contain secrets)
+# For example:
+# local_settings.py
+# .env
+# secrets.yaml
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+logs/
+
+# Any other large files or directories not needed for the build
+# For example, large datasets, media files, etc. if they are in the project
+# and not part of the runtime application.
+# data/ # If data is not needed in the image
+# assets/ # If assets are large and not directly used by the server runtime
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+# If you have frontend build artifacts that are generated and not part of the source
+# e.g., for a separate frontend build process.
+# node_modules/
+# public/build/
+
+k8s/
