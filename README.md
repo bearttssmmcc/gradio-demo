@@ -32,6 +32,27 @@ Remove container
 docker rm my-color-app
 ```
 
+## Cloud Build
+
+Copy the `build/main-cloudbuild.yaml.tmpl` to `build/main-cloudbuild.yaml`, and replace the placeholder:
+- `$PROJECT_ID`
+- `$LOCATION`
+- `$AR_REPO_NAME`
+- `$CLUSTER`
+
+For example
+
+```bash
+export PROJECT_ID=$(gcloud config get-value project)
+export LOCATION=us-central1
+export CLUSTER=gke-progression-cluster
+export AR_REPO_NAME=ntu-lab-repo
+```
+
+```bash
+for template in $(find . -name '*.tmpl'); do envsubst '${PROJECT_ID} ${LOCATION} ${CLUSTER} ${AR_REPO_NAME}' < ${template} > ${template%.*}; done
+```
+
 ## Kubernetes YAML
 
 Assume push the iamge to Google Artifact Registry(us-central1).
@@ -39,6 +60,19 @@ Assume push the iamge to Google Artifact Registry(us-central1).
 Copy the `k8s/deployment.yaml.tmpl` to `k8s/deployment.yaml`, and replace the placeholder:
 - `$PROJECT_ID`
 - `$AR_REPO_NAME`
+
+For example(you can skip it if you have executed it in Cloud Build section)
+
+```bash
+export PROJECT_ID=$(gcloud config get-value project)
+export LOCATION=us-central1
+export CLUSTER=gke-progression-cluster
+export AR_REPO_NAME=ntu-lab-repo
+```
+
+```bash
+for template in $(find . -name '*.tmpl'); do envsubst '${PROJECT_ID} ${LOCATION} ${CLUSTER} ${AR_REPO_NAME}' < ${template} > ${template%.*}; done
+```
 
 Apply to GKE
 

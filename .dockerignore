@@ -115,4 +115,5 @@ logs/
 # node_modules/
 # public/build/
 
+build/
 k8s/
