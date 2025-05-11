@@ -40,7 +40,7 @@ Copy the `build/main-cloudbuild.yaml.tmpl` to `build/main-cloudbuild.yaml`, and 
 - `$AR_REPO_NAME`
 - `$CLUSTER`
 
-For example
+For example, you can do the task by bash commands:
 
 ```bash
 export PROJECT_ID=$(gcloud config get-value project)
@@ -61,7 +61,8 @@ Copy the `k8s/deployment.yaml.tmpl` to `k8s/deployment.yaml`, and replace the pl
 - `$PROJECT_ID`
 - `$AR_REPO_NAME`
 
-For example(you can skip it if you have executed it in Cloud Build section)
+For example, you can do the task by bash commands:
+(you can skip it if you have executed it in Cloud Build section)
 
 ```bash
 export PROJECT_ID=$(gcloud config get-value project)
