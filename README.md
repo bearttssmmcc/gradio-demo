@@ -7,13 +7,13 @@
 Build
 
 ```bash
-docker build -t rgb-color-generator .
+docker build -t color-generator .
 ```
 
 Start container
 
 ```bash
-docker run d -p 7860:7860 --name my-color-app rgb-color-generator
+docker run d -p 7860:7860 --name my-color-app color-generator
 ```
 
 Access
